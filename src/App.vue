@@ -1,8 +1,11 @@
 <template>
     <div class="container">
         <app-header :quotesLength="quotes.length"></app-header>
-        <app-new-quote @addQuote="addQuote"></app-new-quote>
-        <app-quotes></app-quotes>
+        <app-new-quote :addQuote="addQuote" :quotesLength="quotes.length"></app-new-quote>
+        <app-quotes :quotes="quotes" :deleteQuote="deleteQuote"></app-quotes>
+        <div>
+            <p>Info: Click on a Quote to delete it</p>
+        </div>
     </div>
 </template>
 
@@ -25,11 +28,13 @@ import Quotes from './components/Quotes.vue';
         methods: {
             addQuote(quote) {
                 this.quotes.push(quote);
-                console.log(this.quotes);
+            },
+            deleteQuote(quoteIndex) {
+                this.quotes.splice(quoteIndex, 1);
             }
         }
     }
 </script>
 
-<style>
+<style scoped>
 </style>
