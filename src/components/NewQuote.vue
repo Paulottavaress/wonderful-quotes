@@ -1,12 +1,19 @@
 <template>
-    <div>
-        <h4>Quote</h4>
-        <textarea rows="5" cols="60" v-model="quote"></textarea>
-        <button 
-            @click="(quotesLength === 10) ? this.alert('Delete a quote to add more!') : addQuote(quote)"
-        >
-            Add Quote
-        </button>
+    <div class="row">
+        <form>
+            <div class="col-sm-8 col-sm-offset-2 col-xs-12 col-md-6 col-md-offset-3 form-group">
+                <label>Quote</label>
+                <textarea class="form-control" rows="3" v-model="quote"></textarea>
+            </div>
+            <div class="col-sm-8 col-sm-offset-2 col-xs-12 col-md-6 col-md-offset-3 form-group">
+                <button 
+                    class="btn btn-primary"
+                    @click.prevent="newQuote()"
+                >
+                    Add Quote
+                </button>
+            </div>
+        </form>
     </div>
 </template>
 
@@ -15,6 +22,14 @@
         data() {
             return {
                 quote: ''
+            }
+        },
+        methods: {
+            newQuote() {
+                this.quotesLength === 10
+                    ? this.alert('Delete a quote to add more!')
+                    : this.addQuote(this.quote);
+                this.quote = '';
             }
         },
         props: {

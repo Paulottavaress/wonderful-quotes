@@ -1,9 +1,19 @@
 <template>
-    <div>
-        <h2>Quotes Added</h2>
-        <div class="progress-bar">
-            <div class="progress" :style="'width:' + (quotesLength * 10) + '%'">
-                  {{ quotesLength + ' / 10' }}
+    <div class="row">
+        <div class="col-sm-12">
+            <h2>Quotes Added</h2>
+            <div class="progress">
+                <div class="progress">
+                    <div
+                    class="progress-bar"
+                    role="progressbar"
+                    aria-valuenow="60"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                    :style="'width:' + (quotesLength * 10) + '%'">
+                        {{ quotesLength + ' / 10' }}
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -19,21 +29,3 @@
         }
     }
 </script>
-
-<style scoped>
-    .progress,
-    .progress-bar {
-        height: 20px;
-        border-radius: 5px;
-    }
-
-    .progress-bar {
-        background-color: #ccc;
-        width: 100%;
-
-    }
-
-    .progress {
-        background-color: blue;
-    }
-</style>
