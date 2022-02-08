@@ -1,12 +1,11 @@
 <template>
-    <div>    
+    <div class="row">    
         <app-quote
             v-for="(quote, index) in quotes"
             :key="index"
+            @click.native="deleteQuote(index)"
         >
-            <div @click="deleteQuote(index)">
-                <p> {{quote}}</p>
-            </div>
+            {{ quote }}
         </app-quote>
     </div>
 </template>
@@ -29,3 +28,7 @@ import Quote from './Quote.vue'
         }
     }
 </script>
+
+<style scoped>
+
+</style>

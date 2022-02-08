@@ -3,8 +3,12 @@
         <app-header :quotesLength="quotes.length"></app-header>
         <app-new-quote :addQuote="addQuote" :quotesLength="quotes.length"></app-new-quote>
         <app-quotes :quotes="quotes" :deleteQuote="deleteQuote"></app-quotes>
-        <div>
-            <p>Info: Click on a Quote to delete it</p>
+        <div class="row">
+            <div class="col-sm-12 text-center">
+                <div class="alert alert-info">
+                    <p>Info: Click on a Quote to delete it</p>
+                </div>
+            </div>
         </div>
     </div>
 </template>
